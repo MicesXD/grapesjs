@@ -79,13 +79,14 @@
     </div>
 
     <script type="text/javascript">
+      const projectId = 1;
       var editor = grapesjs.init({
         showOffsets: 1,
         noticeOnUnload: 0,
         container: '#gjs',
         height: '100%',
         fromElement: true,
-        storageManager: { autoload: 0 },
+        storageManager: true,
         styleManager : {
           sectors: [{
               name: 'General',
@@ -114,13 +115,28 @@
             }
           ],
         },
-      });
+        storageManager: {
+          type: 'local',
+          stepsBeforeSave: 1,
+          autosave: true,         // Store data automatically
+          autoload: true,
+          contentTypeJson: true,
+          storeComponents: true,
+          storeStyles: true,
+          storeHtml: true,
+          storeCss: true,
+          headers: {
+          'Content-Type': 'application/json'
+          }
+      }});
 
       editor.BlockManager.add('testBlock', {
         label: 'Block',
         attributes: { class:'gjs-fonts gjs-f-b1' },
         content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center">Test block</div>`
       })
+
+      console.log(localStorage.gjsProject);
     </script>
   </body>
 </html>

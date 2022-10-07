@@ -56,10 +56,10 @@ export default {
       headers: {},
 
       // Endpoint URL where to store data project
-      urlStore: '',
+      urlStore: 'src/storage_manager/config/save_now.php',
 
       // Endpoint URL where to load data project
-      urlLoad: '',
+      urlLoad: 'src/storage_manager/config/load_now.php',
 
       // set contentType paramater of $.ajax
       // true: application/json; charset=utf-8'

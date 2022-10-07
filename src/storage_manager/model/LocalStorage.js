@@ -5,6 +5,7 @@ export default class LocalStorage {
     if (this.hasLocal(opts, true)) {
       localStorage.setItem(opts.key, JSON.stringify(data));
     }
+    console.log(data, opts);
   }
 
   async load(opts = {}) {
@@ -13,7 +14,7 @@ export default class LocalStorage {
     if (this.hasLocal(opts, true)) {
       result = JSON.parse(localStorage.getItem(opts.key) || '{}');
     }
-
+    console.log(result);
     return result;
   }
 
